@@ -1,0 +1,10 @@
+[language-server.gpt]
+command = "deno"
+args = ["run", "--allow-env", "--allow-net", "/Users/nko/Developer/personal/helix-gpt/src/app.ts", "--handler", "copilot"]
+
+[[language]]
+name = "go"
+language-servers = [
+	"gopls",
+	"gpt"
+]
