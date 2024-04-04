@@ -7,6 +7,22 @@ return {
     'nvim-treesitter/nvim-treesitter',
     'nvim-neotest/neotest-go',
   },
+  keys = {
+    {
+      '<leader>tt',
+      function()
+        require('neotest').run.run()
+      end,
+      desc = 'Run test - closest',
+    },
+    {
+      '<leader>tf',
+      function()
+        require('neotest').run.run(vim.fn.expand '%')
+      end,
+      desc = 'Run test - file',
+    },
+  },
   config = function()
     require('neotest').setup {
       adapters = {
