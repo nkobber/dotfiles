@@ -36,7 +36,6 @@ ZPLUG_PROTOCOL=ssh
 
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 zplug "zsh-users/zsh-syntax-highlighting", from:"github"
-zplug "mafredri/zsh-async", from:"github", use:"async.zsh"
 
 # Work zplug plugin
 source ~/.work_zplug
