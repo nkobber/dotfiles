@@ -13,6 +13,8 @@ alias h="hx"
 # Git
 alias g="git"
 alias lg="lazygit"
+alias gd="git diff"
+alias gs="git status"
 
 # Secrets
 source ~/.secrets
