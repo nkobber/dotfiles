@@ -28,6 +28,28 @@ GOPATH=~/go
 GOBIN="$GOPATH/bin"
 PATH="$GOBIN:$PATH"
 
+# zsh settings
+## History command configuration
+export HISTSIZE=50000
+export SAVEHIST=10000
+setopt extended_history       # record timestamp of command in HISTFILE
+setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt hist_ignore_dups       # ignore duplicated commands history list
+setopt hist_ignore_space      # ignore commands that start with space
+setopt hist_verify            # show command with history expansion to user before running it
+setopt share_history          # share command history data
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt hist_verify
+setopt share_history
+# Changing/making/removing directory
+setopt auto_cd
+setopt auto_pushd
+setopt pushd_ignore_dups
+setopt pushdminus
+
 # Init zplug
 source ~/.zplug/init.zsh
 
@@ -35,15 +57,11 @@ source ~/.zplug/init.zsh
 ZPLUG_PROTOCOL=ssh
 
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+zplug "lib/completion", from:oh-my-zsh
 zplug "zsh-users/zsh-syntax-highlighting", from:"github"
 
 # Work zplug plugin
 source ~/.work_zplug
-
-# Check for updates and install them
-if ! zplug check; then
-    zplug install
-fi
 
 # Load all zplug plugins
 zplug load
