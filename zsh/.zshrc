@@ -17,7 +17,9 @@ alias gd="git diff"
 alias gs="git status"
 
 # Secrets
-source ~/.secrets
+if [ -f ~/.secrets ]; then
+	source ~/.secrets
+fi
 
 # ll
 alias ls="exa"
@@ -61,13 +63,17 @@ zplug "lib/completion", from:oh-my-zsh
 zplug "zsh-users/zsh-syntax-highlighting", from:"github"
 
 # Work zplug plugin
-source ~/.work_zplug
+if [ -f ~/.work_zplug ]; then
+	source ~/.work_zplug
+fi
 
 # Load all zplug plugins
 zplug load
 
 # Work env vars and functions 
-source ~/.work
+if [ -f ~/.work ]; then
+	source ~/.work
+fi
 
 # zoxide
 eval "$(zoxide init zsh)"
