@@ -95,10 +95,10 @@ vim.keymap.set('n', '<leader>bd', '<cmd>bd<cr>', { desc = 'Delete buffer' })
 --  Use CTRL+<hjkl> to switch between windows
 --
 --  See `:help wincmd` for a list of all window commands
--- vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
--- vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
--- vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
--- vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -122,6 +122,7 @@ if not vim.loop.fs_stat(lazypath) then
   vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
+vim.keymap.set('n', '<leader>ll', '<cmd>Lazy<CR>', { desc = 'Lazy' })
 
 -- [[ Configure and install plugins ]]
 --
@@ -180,6 +181,7 @@ require('lazy').setup({
         ['<leader>d'] = { name = 'Document', _ = 'which_key_ignore' },
         ['<leader>f'] = { name = 'Find', _ = 'which_key_ignore' },
         ['<leader>g'] = { name = 'Git', _ = 'which_key_ignore' },
+        ['<leader>l'] = { name = 'Lazy', _ = 'which_key_ignore' },
         ['<leader>r'] = { name = 'Rename', _ = 'which_key_ignore' },
         ['<leader>s'] = { name = 'Search', _ = 'which_key_ignore' },
         ['<leader>t'] = { name = 'Test', _ = 'which_key_ignore' },
@@ -655,7 +657,7 @@ require('lazy').setup({
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
-  { import = 'custom.plugins' },
+  { import = 'plugins' },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
