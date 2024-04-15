@@ -36,7 +36,10 @@ end
 
 local config = wezterm.config_builder()
 
--- Wtf is this color scheme
+--
+adjust_window_size_when_changing_font_size = false
+
+-- color scheme
 config.color_scheme = "Tokyo Night"
 
 -- Nerd Font
@@ -48,6 +51,9 @@ config.default_cursor_style = "BlinkingBlock"
 config.animation_fps = 1
 config.cursor_blink_ease_in = "Constant"
 config.cursor_blink_ease_out = "Constant"
+
+-- background
+config.window_background_opacity = 0.9
 
 -- Pane focus follows mouse
 config.pane_focus_follows_mouse = true
