@@ -156,39 +156,6 @@ require('lazy').setup({
   --    require('gitsigns').setup({ ... })
   --
   -- See `:help gitsigns` to understand what the configuration keys do
-  { -- Adds git related signs to the gutter, as well as utilities for managing changes
-    'lewis6991/gitsigns.nvim',
-    opts = {
-      signs = {
-        add = { text = '+' },
-        change = { text = '~' },
-        delete = { text = '_' },
-        topdelete = { text = '‾' },
-        changedelete = { text = '~' },
-      },
-    },
-  },
-  { -- Useful plugin to show you pending keybinds.
-    'folke/which-key.nvim',
-    event = 'VeryLazy', -- Sets the loading event to 'VimEnter'
-    config = function() -- This is the function that runs, AFTER loading
-      require('which-key').setup()
-
-      -- Document existing key chains
-      require('which-key').register {
-        ['<leader>b'] = { name = 'Buffer', _ = 'which_key_ignore' },
-        ['<leader>c'] = { name = 'Code', _ = 'which_key_ignore' },
-        ['<leader>d'] = { name = 'Document', _ = 'which_key_ignore' },
-        ['<leader>f'] = { name = 'Find', _ = 'which_key_ignore' },
-        ['<leader>g'] = { name = 'Git', _ = 'which_key_ignore' },
-        ['<leader>l'] = { name = 'Lazy', _ = 'which_key_ignore' },
-        ['<leader>r'] = { name = 'Rename', _ = 'which_key_ignore' },
-        ['<leader>s'] = { name = 'Search', _ = 'which_key_ignore' },
-        ['<leader>t'] = { name = 'Test', _ = 'which_key_ignore' },
-        ['<leader>w'] = { name = 'Workspace', _ = 'which_key_ignore' },
-      }
-    end,
-  },
   { -- Fuzzy Finder (files, lsp, etc)
     'nvim-telescope/telescope.nvim',
     event = 'VimEnter',
