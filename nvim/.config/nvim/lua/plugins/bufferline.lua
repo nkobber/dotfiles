@@ -5,9 +5,13 @@ return {
   keys = {
     { '<S-h>', '<cmd>BufferLineCyclePrev<cr>', desc = 'Previous Buffer' },
     { '<S-l>', '<cmd>BufferLineCycleNext<cr>', desc = 'Next Buffer' },
+    { '<leader>bp', '<cmd>BufferLineTogglePin<CR>', desc = 'Toggle pin' },
   },
   opts = {
     options = {
+      close_command = function(n)
+        require('mini.bufremove').delete(n, false)
+      end,
       offsets = {
         {
           filetype = 'neo-tree',
