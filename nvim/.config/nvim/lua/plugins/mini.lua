@@ -15,6 +15,11 @@ return { -- Collection of various small independent plugins/modules
     -- - sd'   - [S]urround [D]elete [']quotes
     -- - sr)'  - [S]urround [R]eplace [)] [']
     require('mini.surround').setup()
+    require('mini.bufremove').setup()
+    require('mini.indentscope').setup {
+      symbol = '|',
+      options = { try_as_border = true },
+    }
 
     -- Simple and easy statusline.
     --  You could remove this setup call if you don't like it,
