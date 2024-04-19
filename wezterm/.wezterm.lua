@@ -36,6 +36,8 @@ end
 
 local config = wezterm.config_builder()
 
+config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
+
 --
 adjust_window_size_when_changing_font_size = false
 
@@ -44,7 +46,7 @@ config.color_scheme = "Tokyo Night"
 
 -- Nerd Font
 config.font = wezterm.font("Hack Nerd Font")
-config.font_size = 12
+config.font_size = 13
 
 -- Set cursor to blicking block and decrease fps to make it blink and not "fade"
 config.default_cursor_style = "BlinkingBlock"
@@ -53,7 +55,7 @@ config.cursor_blink_ease_in = "Constant"
 config.cursor_blink_ease_out = "Constant"
 
 -- background
-config.window_background_opacity = 0.9
+config.window_background_opacity = 1.0
 
 -- Pane focus follows mouse
 config.pane_focus_follows_mouse = true
@@ -62,13 +64,13 @@ config.pane_focus_follows_mouse = true
 config.keys = {
 	-- easier splits
 	{
-		key = "\\",
-		mods = "CTRL",
+		key = "|",
+		mods = "LEADER|SHIFT",
 		action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
 	},
 	{
 		key = "-",
-		mods = "CTRL",
+		mods = "LEADER",
 		action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
 	},
 
