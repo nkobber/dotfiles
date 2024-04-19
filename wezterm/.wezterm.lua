@@ -34,12 +34,25 @@ local function split_nav(resize_or_move, key)
 	}
 end
 
+wezterm.on("toggle-colorscheme", function(window, pane)
+	local overrides = window:get_config_overrides() or {}
+	if not overrides.color_scheme then
+		overrides.color_scheme = "Tokyo Night Day"
+	else
+		overrides.color_scheme = nil
+	end
+	window:set_config_overrides(overrides)
+end)
+
 local config = wezterm.config_builder()
 
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 
---
-adjust_window_size_when_changing_font_size = false
+-- Window settings
+config.window_background_opacity = 1.0
+config.adjust_window_size_when_changing_font_size = false
+config.use_fancy_tab_bar = true
+config.show_new_tab_button_in_tab_bar = false
 
 -- color scheme
 config.color_scheme = "Tokyo Night"
@@ -53,9 +66,6 @@ config.default_cursor_style = "BlinkingBlock"
 config.animation_fps = 1
 config.cursor_blink_ease_in = "Constant"
 config.cursor_blink_ease_out = "Constant"
-
--- background
-config.window_background_opacity = 1.0
 
 -- Pane focus follows mouse
 config.pane_focus_follows_mouse = true
@@ -88,6 +98,9 @@ config.keys = {
 	-- enable opt left/right to jump words
 	{ key = "LeftArrow", mods = "OPT", action = wezterm.action({ SendString = "\x1bb" }) },
 	{ key = "RightArrow", mods = "OPT", action = wezterm.action({ SendString = "\x1bf" }) },
+
+	-- toggle colorscheme
+	{ key = "E", mods = "LEADER", action = wezterm.action.EmitEvent("toggle-colorscheme") },
 }
 
 return config
