@@ -1,1 +1,15 @@
 command_timeout = 1000
+
+[golang]
+format = 'via [$symbol]($style)'
+symbol = ' '
+
+[elixir]
+symbol = " "
+
+[lua]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
