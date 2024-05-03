@@ -2,6 +2,29 @@ local wezterm = require("wezterm")
 local mux = wezterm.mux
 local act = wezterm.action
 
+local colors = {
+	foreground = "#ffffff",
+	background = "#16181a",
+
+	cursor_bg = "#ffffff",
+	cursor_fg = "#000000",
+	cursor_border = "#ffffff",
+
+	selection_fg = "#ffffff",
+	selection_bg = "#3c4048",
+
+	scrollbar_thumb = "#16181a",
+	split = "#16181a",
+
+	ansi = { "#16181a", "#ff6e5e", "#5eff6c", "#f1ff5e", "#5ea1ff", "#bd5eff", "#5ef1ff", "#ffffff" },
+	brights = { "#3c4048", "#ff6e5e", "#5eff6c", "#f1ff5e", "#5ea1ff", "#bd5eff", "#5ef1ff", "#ffffff" },
+	indexed = { [16] = "#ffbd5e", [17] = "#ff6e5e" },
+
+	tab_bar = {
+		background = "rgb(22, 24, 26 / 20%)",
+	},
+}
+
 local function is_vim(pane)
 	return pane:get_user_vars().IS_NVIM == "true"
 end
@@ -34,28 +57,20 @@ local function split_nav(resize_or_move, key)
 	}
 end
 
-wezterm.on("toggle-colorscheme", function(window, pane)
-	local overrides = window:get_config_overrides() or {}
-	if not overrides.color_scheme then
-		overrides.color_scheme = "Tokyo Night Day"
-	else
-		overrides.color_scheme = nil
-	end
-	window:set_config_overrides(overrides)
-end)
-
 local config = wezterm.config_builder()
 
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 
 -- Window settings
-config.window_background_opacity = 1.0
+config.window_decorations = "RESIZE"
+config.window_background_opacity = 0.75
+config.macos_window_background_blur = 30
 config.adjust_window_size_when_changing_font_size = false
-config.use_fancy_tab_bar = true
+config.use_fancy_tab_bar = false
 config.show_new_tab_button_in_tab_bar = false
 
 -- color scheme
-config.color_scheme = "Tokyo Night"
+config.colors = colors
 
 -- Nerd Font
 config.font = wezterm.font("Hack Nerd Font")
@@ -98,9 +113,6 @@ config.keys = {
 	-- enable opt left/right to jump words
 	{ key = "LeftArrow", mods = "OPT", action = wezterm.action({ SendString = "\x1bb" }) },
 	{ key = "RightArrow", mods = "OPT", action = wezterm.action({ SendString = "\x1bf" }) },
-
-	-- toggle colorscheme
-	{ key = "E", mods = "LEADER", action = wezterm.action.EmitEvent("toggle-colorscheme") },
 }
 
 return config
