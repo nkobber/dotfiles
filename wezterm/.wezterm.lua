@@ -2,29 +2,6 @@ local wezterm = require("wezterm")
 local mux = wezterm.mux
 local act = wezterm.action
 
-local colors = {
-	foreground = "#ffffff",
-	background = "#16181a",
-
-	cursor_bg = "#ffffff",
-	cursor_fg = "#000000",
-	cursor_border = "#ffffff",
-
-	selection_fg = "#ffffff",
-	selection_bg = "#3c4048",
-
-	scrollbar_thumb = "#16181a",
-	split = "#16181a",
-
-	ansi = { "#16181a", "#ff6e5e", "#5eff6c", "#f1ff5e", "#5ea1ff", "#bd5eff", "#5ef1ff", "#ffffff" },
-	brights = { "#3c4048", "#ff6e5e", "#5eff6c", "#f1ff5e", "#5ea1ff", "#bd5eff", "#5ef1ff", "#ffffff" },
-	indexed = { [16] = "#ffbd5e", [17] = "#ff6e5e" },
-
-	tab_bar = {
-		background = "rgb(22, 24, 26 / 20%)",
-	},
-}
-
 local function is_vim(pane)
 	return pane:get_user_vars().IS_NVIM == "true"
 end
@@ -61,16 +38,16 @@ local config = wezterm.config_builder()
 
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 
+config.scrollback_lines = 99999
+
 -- Window settings
-config.window_decorations = "RESIZE"
-config.window_background_opacity = 0.75
-config.macos_window_background_blur = 30
 config.adjust_window_size_when_changing_font_size = false
 config.use_fancy_tab_bar = false
+config.show_tabs_in_tab_bar = true
 config.show_new_tab_button_in_tab_bar = false
 
 -- color scheme
-config.colors = colors
+config.color_scheme = "Tokyo Night"
 
 -- Nerd Font
 config.font = wezterm.font("Hack Nerd Font")
