@@ -140,6 +140,7 @@ return {
           gofumpt = true,
         },
         ['elixir-ls'] = {},
+        zls = {},
         lua_ls = {
           settings = {
             Lua = {
