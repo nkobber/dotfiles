@@ -22,7 +22,6 @@ if [ -f ~/.secrets ]; then
 fi
 
 # ll
-alias ls="exa"
 alias ll="ls -lh"
 
 # Go
