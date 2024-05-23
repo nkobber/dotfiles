@@ -4,6 +4,7 @@ vim.g.maplocalleader = ' '
 
 vim.opt.termguicolors = true
 vim.opt.laststatus = 3
+vim.opt.termsync = false
 
 -- Set to true if you have a Nerd Font installed
 vim.g.have_nerd_font = true
