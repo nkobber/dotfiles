@@ -2,7 +2,6 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.opt.termguicolors = true
 vim.opt.laststatus = 3
 vim.opt.termsync = false
 
