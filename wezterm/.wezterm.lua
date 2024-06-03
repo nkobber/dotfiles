@@ -6,6 +6,17 @@ local function is_vim(pane)
 	return pane:get_user_vars().IS_NVIM == "true"
 end
 
+local function split(inputstr, sep)
+	if sep == nil then
+		sep = "%s"
+	end
+	local t = {}
+	for str in string.gmatch(inputstr, "([^" .. sep .. "]+)") do
+		table.insert(t, str)
+	end
+	return t
+end
+
 local direction_keys = {
 	h = "Left",
 	j = "Down",
@@ -55,8 +66,10 @@ wezterm.on("update-status", function(window, pane)
 	local cells = {}
 
 	-- Current working dir
-	local cwd_uri = pane:get_current_working_dir()
-	table.insert(cells, " " .. cwd_uri.path)
+	local home_dir = "^/Users/nko"
+	local cwd = pane:get_current_working_dir().path
+	cwd = string.gsub(cwd, home_dir, "~")
+	table.insert(cells, " " .. cwd)
 
 	-- Format date/time in this style: "Wed Mar 3 08:14"
 	local date = wezterm.strftime(" %a %b %-d %H:%M")
