@@ -2,7 +2,7 @@ return {
   'nvim-neotest/neotest',
   dependencies = {
     'nvim-neotest/nvim-nio',
-    'nvim-neotest/neotest-go',
+    'fredrikaverpil/neotest-golang',
   },
   opts = {
     -- Can be a list of adapters like what neotest expects,
@@ -10,8 +10,8 @@ return {
     -- or a table of adapter names, mapped to adapter configs.
     -- The adapter will then be automatically loaded with the config.
     adapters = {
-      ['neotest-go'] = {
-        args = { '-tags=integration' },
+      ['neotest-golang'] = {
+        go_test_args = { '-v', '-race', '-count=1', '-tags=integration' },
       },
     },
     status = { virtual_text = true },
