@@ -110,7 +110,8 @@ wezterm.on("update-status", function(window, pane)
 end)
 
 -- color scheme
-config.color_scheme = "Tokyo Night"
+config.colors = require("cyberdream")
+-- config.color_scheme = "Tokyo Night"
 
 -- Nerd Font
 config.font = wezterm.font("Hack Nerd Font")
