@@ -50,6 +50,7 @@ local config = wezterm.config_builder()
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 
 config.scrollback_lines = 99999
+config.quit_when_all_windows_are_closed = false
 
 -- Window settings
 local TITLEBAR_COLOR = "#333333"
