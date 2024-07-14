@@ -5,15 +5,15 @@ return { -- Useful plugin to show you pending keybinds.
     require('which-key').setup()
 
     -- Document existing key chains
-    require('which-key').register {
-      ['<leader>c'] = { name = 'Code', _ = 'which_key_ignore' },
-      ['<leader>d'] = { name = 'Document', _ = 'which_key_ignore' },
-      ['<leader>f'] = { name = 'Find', _ = 'which_key_ignore' },
-      ['<leader>g'] = { name = 'Git', _ = 'which_key_ignore' },
-      ['<leader>l'] = { name = 'Lazy', _ = 'which_key_ignore' },
-      ['<leader>r'] = { name = 'Rename', _ = 'which_key_ignore' },
-      ['<leader>s'] = { name = 'Search', _ = 'which_key_ignore' },
-      ['<leader>t'] = { name = 'Test', _ = 'which_key_ignore' },
+    require('which-key').add {
+      { '<leader>c', group = 'Code' },
+      { '<leader>d', group = 'Document' },
+      { '<leader>f', group = 'Find' },
+      { '<leader>g', group = 'Git' },
+      { '<leader>l', group = 'Lazy' },
+      { '<leader>r', group = 'Rename' },
+      { '<leader>s', group = 'Search' },
+      { '<leader>t', group = 'Test' },
     }
   end,
 }
