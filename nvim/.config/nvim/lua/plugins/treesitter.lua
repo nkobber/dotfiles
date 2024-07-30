@@ -1,5 +1,6 @@
 return { -- Highlight, edit, and navigate code
   'nvim-treesitter/nvim-treesitter',
+  event = 'BufEnter',
   build = ':TSUpdate',
   opts = {
     ensure_installed = { 'bash', 'c', 'html', 'lua', 'luadoc', 'javascript', 'markdown', 'vim', 'vimdoc', 'go', 'elixir', 'zig', 'gleam' },
