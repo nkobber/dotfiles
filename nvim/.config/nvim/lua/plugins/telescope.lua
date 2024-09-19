@@ -30,7 +30,6 @@ return {
           mappings = {
             i = { ['<esc>'] = actions.close },
           },
-          path_display = { 'filename_first' },
         },
         extensions = {
           ['ui-select'] = {
@@ -55,6 +54,7 @@ return {
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader>sb', builtin.buffers, { desc = '[S}search existing [b]uffers' })
       vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = '[F]ind [F]iles' })
+      vim.keymap.set('n', '<leader>gs', builtin.git_status, { desc = 'List Git files changed' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
