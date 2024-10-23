@@ -9,5 +9,10 @@ cd ~/dotfiles
 ```
 
 ```
-stow zsh && stow wezterm && stow nvim && stow helix && stow starship && stow kitty && stow aerospace
+stow zsh
+stow wezterm
+stow nvim
+stow starship
+stow kitty
+stow tmux
 ```

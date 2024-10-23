@@ -1,9 +1,0 @@
-# theme = "tokyonight"
-
-[editor]
-line-number = "relative"
-scroll-lines = 1
-popup-border = "all"
-
-[keys.normal]
-C-g = [":new", ":insert-output lazygit", ":buffer-close!", ":reload"]
