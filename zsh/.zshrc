@@ -85,3 +85,8 @@ export NVM_DIR="$HOME/.nvm"
 
 # Starship
 eval "$(starship init zsh)"
+
+# Start tmux
+if [ -z "$TMUX" ]; then
+  tmux attach || exec tmux new-session && exit;
+fi
