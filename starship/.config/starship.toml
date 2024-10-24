@@ -13,3 +13,5 @@ symbol = " "
 [nodejs]
 symbol = " "
 
+[cmd_duration]
+disabled = true
