@@ -9,10 +9,5 @@ cd ~/dotfiles
 ```
 
 ```
-stow zsh
-stow wezterm
-stow nvim
-stow starship
-stow kitty
-stow tmux
+ls --color=never | xargs -I {} stow {}
 ```
