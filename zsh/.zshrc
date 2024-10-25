@@ -8,13 +8,20 @@ setopt globdots
 export EDITOR=nvim
 alias vim="nvim"
 alias vi="nvim"
-alias h="hx"
 
 # Git
 alias g="git"
 alias lg="lazygit"
 alias gd="git diff"
 alias gs="git status"
+
+# Tmux
+tmuxattach() {
+if [ -z "$TMUX" ]; then
+	tmux new-session -A -s main
+fi
+}
+alias t="tmuxattach"
 
 # Secrets
 if [ -f ~/.secrets ]; then
@@ -86,7 +93,4 @@ export NVM_DIR="$HOME/.nvm"
 # Starship
 eval "$(starship init zsh)"
 
-# Start tmux
-if [ -z "$TMUX" ]; then
-  tmux attach || exec tmux new-session && exit;
-fi
+
