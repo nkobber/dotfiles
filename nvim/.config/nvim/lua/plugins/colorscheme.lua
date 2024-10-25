@@ -5,12 +5,6 @@ return {
   init = function()
     vim.cmd.colorscheme 'rose-pine'
     vim.cmd.hi 'Comment gui=none'
-  end,
-  config = function()
-    require('rose-pine').setup {
-      styles = {
-        transparency = true,
-      },
-    }
+    vim.o.background = 'dark'
   end,
 }
