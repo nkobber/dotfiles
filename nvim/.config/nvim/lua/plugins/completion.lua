@@ -33,10 +33,12 @@ return { -- Autocompletion
     --  into multiple repos for maintenance purposes.
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
+    'onsails/lspkind.nvim',
   },
   config = function()
     -- See `:help cmp`
     local cmp = require 'cmp'
+    local lspkind = require 'lspkind'
     local luasnip = require 'luasnip'
     luasnip.config.setup {}
 
@@ -99,6 +101,19 @@ return { -- Autocompletion
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'path' },
+      },
+
+      formatting = {
+        format = lspkind.cmp_format {
+          with_text = true,
+          menu = {
+            buffer = '[buf]',
+            nvim_lsp = '[LSP]',
+            nvim_lua = '[api]',
+            path = '[path]',
+            luasnip = '[snip]',
+          },
+        },
       },
     }
   end,
