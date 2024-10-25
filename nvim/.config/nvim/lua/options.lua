@@ -5,6 +5,10 @@ vim.g.maplocalleader = ' '
 vim.opt.laststatus = 3
 vim.opt.termsync = false
 
+-- colors
+vim.o.background = 'dark'
+vim.cmd.hi 'Comment gui=none'
+
 -- Set to true if you have a Nerd Font installed
 vim.g.have_nerd_font = true
 
@@ -45,7 +49,7 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 -- Sets how neovim will display certain whitespace characters in the editor.
-vim.opt.list = true
+vim.opt.list = false
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Preview substitutions live, as you type!
