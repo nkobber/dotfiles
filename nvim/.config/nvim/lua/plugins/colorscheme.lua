@@ -34,14 +34,14 @@ return {
   },
   {
     'edeneast/nightfox.nvim',
-    enabled = false,
+    enabled = true,
     init = function()
-      vim.cmd.colorscheme 'carbonfox'
+      vim.cmd.colorscheme 'terafox'
     end,
   },
   {
     'catppuccin/nvim',
-    enabled = true,
+    enabled = false,
     init = function()
       vim.cmd.colorscheme 'catppuccin'
     end,
