@@ -7,10 +7,9 @@ return { -- Collection of various small independent plugins/modules
     require('mini.surround').setup()
     require('mini.bufremove').setup()
     require('mini.ai').setup()
-    require('mini.files').setup {
-      vim.keymap.set('n', '<leader>-', '<cmd>lua MiniFiles.open()<CR>', { noremap = true, silent = true, desc = 'Open files' }),
-    }
-    require('mini.jump2d').setup()
+    -- require('mini.files').setup {
+    --   vim.keymap.set('n', '<leader>-', '<cmd>lua MiniFiles.open()<CR>', { noremap = true, silent = true, desc = 'Open files' }),
+    -- }
     require('mini.indentscope').setup {}
 
     local statusline = require 'mini.statusline'

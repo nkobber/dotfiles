@@ -139,6 +139,7 @@ return {
         gopls = {
           gofumpt = true,
         },
+        bufls = {},
         ['terraform-ls'] = {},
         zls = {},
         lua_ls = {
