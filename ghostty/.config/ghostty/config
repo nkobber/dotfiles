@@ -1,0 +1,13 @@
+# Window settings
+macos-window-shadow = false
+
+# Font
+font-family = "JetBrains Mono"
+font-thicken = true
+
+copy-on-select = true
+clipboard-read = allow
+clipboard-write = allow
+
+
+keybind = global:ctrl+grave_accent=toggle_quick_terminal
