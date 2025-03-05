@@ -1,5 +1,6 @@
 # Window settings
 macos-window-shadow = false
+theme = catppuccin-mocha
 
 # Font
 font-family = "JetBrains Mono"
