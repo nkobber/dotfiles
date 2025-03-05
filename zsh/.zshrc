@@ -1,5 +1,5 @@
 # Add ~/bin to path
-PATH="/Users/nko/bin:$PATH"
+PATH="$HOME/bin:$PATH"
 
 # Suggest completions for hidden files/directories
 setopt globdots
