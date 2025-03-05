@@ -11,3 +11,4 @@ clipboard-write = allow
 
 
 keybind = global:ctrl+grave_accent=toggle_quick_terminal
+quick-terminal-animation-duration = 0
