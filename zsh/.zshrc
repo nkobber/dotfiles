@@ -4,6 +4,9 @@ PATH="/Users/nko/bin:$PATH"
 # Suggest completions for hidden files/directories
 setopt globdots
 
+# Homebrew
+HOMEBREW_NO_ENV_HINTS=1
+
 # Editor
 export EDITOR=nvim
 alias vim="nvim"
@@ -28,13 +31,15 @@ if [ -f ~/.secrets ]; then
 	source ~/.secrets
 fi
 
-# ll
+alias ls="ls --color=auto"
 alias ll="ls -lh"
+alias la="ls -A"
 
 # Go
 GOPATH=~/go
 GOBIN="$GOPATH/bin"
 PATH="$GOBIN:$PATH"
+GOPRIVATE="go.lunarway.com,github.com/lunarway"
 
 # zsh settings
 ## History command configuration
@@ -58,39 +63,45 @@ setopt auto_pushd
 setopt pushd_ignore_dups
 setopt pushdminus
 
-# Init zplug
-source ~/.zplug/init.zsh
+# Load Zinit
+if [[ ! -f ~/.zinit/bin/zi.zsh ]]; then
+  git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
+fi
+source ~/.zinit/bin/zi.zsh
 
-# Instruct zplug to use ssh for fetching plugins
-ZPLUG_PROTOCOL=ssh
-
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-zplug "lib/completion", from:oh-my-zsh
-zplug "zsh-users/zsh-syntax-highlighting", from:"github"
-
-# Work zplug plugin
-if [ -f ~/.work_zplug ]; then
-	source ~/.work_zplug
+# Work plugins
+if [ -f ~/.work_zsh ]; then
+	source ~/.work_zsh
 fi
 
-# Load all zplug plugins
-zplug load
 
-# Work env vars and functions 
-if [ -f ~/.work ]; then
-	source ~/.work
+# My plugins
+zinit light "zsh-users/zsh-syntax-highlighting"
+zinit light "zsh-users/zsh-completions"
+zinit light "zsh-users/zsh-autosuggestions"
+zinit light "mafredri/zsh-async"
+
+# Load Completions
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+168); do #Only do it once a week. No slow terminal for me please
+  compinit
+done
+compinit -C
+
+# Update zinit once in a while
+RANDOM_NUMBER=$((RANDOM % 100 + 1))
+# Check for updates and install them
+if [[ $RANDOM_NUMBER -eq 1 ]]; then
+  zinit self-update
+  zinit update --parallel
 fi
+
 
 # zoxide
-eval "$(zoxide init zsh)"
-alias cd="z"
-
-# NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# eval "$(zoxide init zsh)"
+# alias cd="z"
 
 # Starship
 eval "$(starship init zsh)"
 
-
+LW_POSTGRESQL_DATABASE_FILE_PATH=~/.zi/plugins/lunarway---lw-zsh/lw-db/databases.json
