@@ -76,6 +76,7 @@ fi
 
 
 # My plugins
+zinit ice lucid wait'0'
 zinit light "zsh-users/zsh-syntax-highlighting"
 zinit light "zsh-users/zsh-completions"
 zinit light "zsh-users/zsh-autosuggestions"
@@ -101,7 +102,15 @@ fi
 # eval "$(zoxide init zsh)"
 # alias cd="z"
 
+source <(fzf --zsh)
+
+# Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+
 # Starship
 eval "$(starship init zsh)"
 
 LW_POSTGRESQL_DATABASE_FILE_PATH=~/.zi/plugins/lunarway---lw-zsh/lw-db/databases.json
+
