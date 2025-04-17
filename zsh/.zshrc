@@ -1,5 +1,8 @@
 # Add ~/bin to path
-PATH="/Users/nko/bin:$PATH"
+PATH="$PATH:/Users/nko/bin"
+
+# Add wezterm cli
+PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
 
 # Suggest completions for hidden files/directories
 setopt globdots
@@ -74,7 +77,6 @@ if [ -f ~/.work_zsh ]; then
 	source ~/.work_zsh
 fi
 
-
 # My plugins
 zinit ice lucid wait'0'
 zinit light "zsh-users/zsh-syntax-highlighting"
@@ -111,6 +113,4 @@ eval "$(pyenv init - zsh)"
 
 # Starship
 eval "$(starship init zsh)"
-
-LW_POSTGRESQL_DATABASE_FILE_PATH=~/.zi/plugins/lunarway---lw-zsh/lw-db/databases.json
 
