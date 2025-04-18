@@ -3,7 +3,6 @@ local config = wezterm.config_builder()
 local smart_splits = wezterm.plugin.require("https://github.com/mrjones2014/smart-splits.nvim")
 
 -- Font
-config.font = wezterm.font("Hack Nerd Font Mono")
 config.font_size = 14
 config.line_height = 1.2
 
