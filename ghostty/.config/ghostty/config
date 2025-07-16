@@ -1,14 +1,22 @@
 # Window settings
 macos-window-shadow = false
 
-# Font
-font-family = "JetBrains Mono"
+# Look and feel
+theme = gruvbox-material
+font-family = "JetBrainsMono Nerd Font"
 font-thicken = true
+quick-terminal-animation-duration = 0
 
 copy-on-select = true
 clipboard-read = allow
 clipboard-write = allow
 
-
+# Keybinds
+keybind = ctrl+a>\=new_split:right
+keybind = ctrl+a>-=new_split:down
+keybind = ctrl+a>,=reload_config
 keybind = global:ctrl+grave_accent=toggle_quick_terminal
-quick-terminal-animation-duration = 0
+keybind = unconsumed:ctrl+h=goto_split:left
+keybind = unconsumed:ctrl+j=goto_split:down
+keybind = unconsumed:ctrl+k=goto_split:up
+keybind = unconsumed:ctrl+l=goto_split:right
