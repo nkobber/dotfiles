@@ -1,9 +1,6 @@
 # Add ~/bin to path
 PATH="$PATH:/Users/nko/bin"
 
-# Add wezterm cli
-PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
-
 # Suggest completions for hidden files/directories
 setopt globdots
 
@@ -66,6 +63,9 @@ setopt auto_pushd
 setopt pushd_ignore_dups
 setopt pushdminus
 
+# zoxide
+eval "$(zoxide init zsh)"
+
 # Load Zinit
 if [[ ! -f ~/.zinit/bin/zi.zsh ]]; then
   git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
@@ -99,10 +99,6 @@ if [[ $RANDOM_NUMBER -eq 1 ]]; then
   zinit update --parallel
 fi
 
-
-# zoxide
-# eval "$(zoxide init zsh)"
-# alias cd="z"
 
 source <(fzf --zsh)
 
