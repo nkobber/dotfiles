@@ -39,7 +39,6 @@ alias la="ls -A"
 GOPATH=~/go
 GOBIN="$GOPATH/bin"
 PATH="$GOBIN:$PATH"
-GOPRIVATE="go.lunarway.com,github.com/lunarway"
 
 # zsh settings
 ## History command configuration
@@ -106,6 +105,8 @@ source <(fzf --zsh)
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
+
+eval "$(mise activate zsh)"
 
 # Starship
 eval "$(starship init zsh)"
