@@ -1,5 +1,6 @@
 # Add ~/bin to path
 PATH="$PATH:/Users/nko/bin"
+PATH="$HOME/.local/bin:$PATH"
 
 # Suggest completions for hidden files/directories
 setopt globdots
@@ -17,14 +18,6 @@ alias g="git"
 alias lg="lazygit"
 alias gd="git diff"
 alias gs="git status"
-
-# Tmux
-tmuxattach() {
-if [ -z "$TMUX" ]; then
-	tmux new-session -A -s main
-fi
-}
-alias t="tmuxattach"
 
 # Secrets
 if [ -f ~/.secrets ]; then
@@ -105,8 +98,6 @@ source <(fzf --zsh)
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
-
-eval "$(mise activate zsh)"
 
 # Starship
 eval "$(starship init zsh)"
