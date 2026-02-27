@@ -94,6 +94,9 @@ fi
 
 source <(fzf --zsh)
 
+# tmux: attach or new session
+alias t='tmux new-session -A -s main'
+
 # Starship
 eval "$(starship init zsh)"
 
